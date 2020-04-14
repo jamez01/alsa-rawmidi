@@ -330,9 +330,9 @@ module AlsaRawMIDI
       # @param [Proc] block
       # @return [Integer]
       def open(id, &block)
-        handle_pointer = FFI::MemoryPointer.new(FFI.type_size(:int))
+        handle_pointer = FFI::MemoryPointer.new(FFI.type_size(:ulong))
         yield(handle_pointer)
-        handle_pointer.read_int
+        handle_pointer.read_ulong
       end
 
     end
@@ -424,9 +424,9 @@ module AlsaRawMIDI
       # @param [Integer] soundcard_id
       # @return [Integer]
       def get_handle(soundcard_id)
-        handle_pointer = FFI::MemoryPointer.new(FFI.type_size(:int))
+        handle_pointer = FFI::MemoryPointer.new(FFI.type_size(:ulong))
         API.snd_ctl_open(handle_pointer, get_name(soundcard_id), 0)
-        handle_pointer.read_int
+        handle_pointer.read_ulong
       end
 
     end
