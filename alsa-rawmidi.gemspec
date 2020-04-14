@@ -7,4 +7,6 @@ Gem::Specification.new do |s|
     s.homepage    = 'https://github.com/sgaxr/alsa-rawmidi'
     s.license     = 'Apache 2' 
     s.description = "Copy of alsa-rawmidi fixing segfault for 64 bit os."
+
+    s.add_dependency "ffi"
 end
